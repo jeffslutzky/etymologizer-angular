@@ -4,13 +4,13 @@
 
 
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-xs-12 col-lg-6">
     <div class="input-group">
       <form ng-submit="getEtymologies()">
             <textarea ng-model="inputText" ng-model-options="{ updateOn: 'submit' }" class="form-control" rows="3" cols="50" id="textArea" placeholder="Enter text here"></textarea>
-            <button class="btn btn-primary">
-              Show etymology
-            </button>
+              <button class="btn btn-primary">
+                Show etymology
+              </button>
       </form>
     </div>
   </div>
@@ -23,27 +23,32 @@
   </h4>
 </div>
 
-<div class="display-words">
-  <h5 ng-show="etymologies">Mouse over a word below to see its full etymology.</h5>
+<div class="row">
+  <div class="col-xs-12 col-lg-6 display-words">
+    <h5 ng-show="etymologies">Mouse over a word below to see its full etymology.</h5>
 
-  <div class="spinner" ng-show="loading">
-    <img src="images/spinner.gif" alt="Loading...">
-  </div>
+    <div class="spinner" ng-show="loading">
+      <img src="images/spinner.gif" alt="Loading...">
+    </div>
 
-  <h4>
-    <span ng-repeat="entry in etymologies">
-      <span class="word">
-        <div ng-class="entry.language" ng-mouseover="showEtymology(entry)" ng-mouseout="hideEtymology(entry)">
-          {{ entry.word }}
-        </div>
+    <h4>
+      <span ng-repeat="entry in etymologies">
+        <span class="word">
+          <div ng-class="entry.language" ng-mouseover="showEtymology(entry)" ng-mouseout="hideEtymology(entry)">
+            {{ entry.word }}
+          </div>
+        </span>
       </span>
-    </span>
-  </h4>
+    </h4>
+  </div>
 </div>
 
-
-<div ng-repeat="entry in etymologies">
-  <div class="display-etymology" ng-show="entry.display">
-    <div ng-bind-html="entry.etymology | unsafe"></div>
+<div class="row">
+  <div class="col-xs-12 col-lg-6">
+    <div ng-repeat="entry in etymologies">
+      <div class="display-etymology" ng-show="entry.display">
+        <div ng-bind-html="entry.etymology | unsafe"></div>
+      </div>
+    </div>
   </div>
 </div>
