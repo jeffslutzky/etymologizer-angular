@@ -19,11 +19,6 @@ html {
   background-color: #2477BF;
 }
 
-.container {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
 .key {
   margin: 20px 5px;
 }
@@ -33,14 +28,11 @@ button {
 }
 
 .display-words {
-  /*width: 50%;*/
   float: left;
   padding-right: 5px;
 }
 
 .display-etymology {
-  /*width: 50%;*/
-  /*float: right;*/
   margin-top: 10px;
   padding: 10px;
   font-size: 16px;
