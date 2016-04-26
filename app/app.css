@@ -52,14 +52,29 @@ button {
   display: inline-block;
 }
 
-.greek:hover, .old-english:hover, .latin:hover, .other:hover {
+.latin:hover, .greek:hover, .old-english:hover, .other:hover {
   border-color: black;
+}
+
+/*blue*/
+.latin {
+  padding: 3px;
+  background-color: #80c5ff;
+  border: solid #5785ab 2px;
+}
+
+.key .latin:hover {
+  border: solid #5785ab 2px;
 }
 
 /*green*/
 .greek {
   padding: 3px;
   background-color: #26ed5b;
+  border: solid #1fa141 2px;
+}
+
+.key .greek:hover {
   border: solid #1fa141 2px;
 }
 
@@ -70,17 +85,18 @@ button {
   border: solid #a35898 2px;
 }
 
-/*blue*/
-.latin {
-  padding: 3px;
-  background-color: #80c5ff;
-  border: solid #5785ab 2px;
+.key .old-english:hover {
+  border: solid #a35898 2px;
 }
 
 /*yellow*/
 .other {
   padding: 3px;
   background-color: #f6ff00;
+  border: solid #9da300 2px;
+}
+
+.key .other:hover {
   border: solid #9da300 2px;
 }
 
