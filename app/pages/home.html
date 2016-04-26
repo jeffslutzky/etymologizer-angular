@@ -1,0 +1,49 @@
+<h5>Enter one or more words, separated by spaces.</h5>
+<h5>You can even paste a sentence! Punctuation will be stripped out, except for hyphens in compound words.</h5>
+<h5>Results come from the <a href="http://www.dictionaryapi.com/">Merriam-Webster Dictionary API</a>.</h5>
+
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <form ng-submit="getEtymologies()">
+            <textarea ng-model="inputText" ng-model-options="{ updateOn: 'submit' }" class="form-control" rows="3" cols="50" id="textArea" placeholder="Enter text here"></textarea>
+            <button class="btn btn-primary">
+              Show etymology
+            </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="key">
+  <h5 class="word">
+    Key:
+    <span class="latin">Latin</span> <span class="greek">Greek</span> <span class="old-english">Old English</span> <span class="other">Other</span>
+  </h4>
+</div>
+
+<div class="display-words">
+  <h5 ng-show="etymologies">Mouse over a word below to see its full etymology.</h5>
+
+  <div class="spinner" ng-show="loading">
+    <img src="images/spinner.gif" alt="Loading...">
+  </div>
+
+  <h4>
+    <span ng-repeat="entry in etymologies">
+      <span class="word">
+        <div ng-class="entry.language" ng-mouseover="showEtymology(entry)" ng-mouseout="hideEtymology(entry)">
+          {{ entry.word }}
+        </div>
+      </span>
+    </span>
+  </h4>
+</div>
+
+
+<div ng-repeat="entry in etymologies">
+  <div class="display-etymology" ng-show="entry.display">
+    <div ng-bind-html="entry.etymology | unsafe"></div>
+  </div>
+</div>
