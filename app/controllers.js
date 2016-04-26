@@ -38,7 +38,10 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
     };
 
   $scope.sanitize = function(wordString) {
-    return wordString.replace("-", " ").replace(/[^a-zA-Z ]/g, "").split(" ");
+    wordString = wordString.replace("-", " ");
+    wordString = wordString.replace(/\s+/g,' ').trim();
+    wordString = wordString.replace(/[^a-zA-Z ]/g, "").split(" ");
+    return wordString;
   }
 
   $scope.showEtymology = function(item) {
