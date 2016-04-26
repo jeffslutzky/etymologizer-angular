@@ -44,11 +44,15 @@ button {
   display: inline-block;
 }
 
-.latin:hover, .greek:hover, .old-english:hover, .other:hover {
+.key .word {
+  line-height: 2.3;
+}
+
+.latin:hover, .anglo-french:hover, .greek:hover, .old-english:hover, .other:hover {
   border-color: black;
 }
 
-/*blue*/
+/*light blue*/
 .latin {
   padding: 3px;
   background-color: #80c5ff;
@@ -57,6 +61,17 @@ button {
 
 .key .latin:hover {
   border: solid #5785ab 2px;
+}
+
+/*red*/
+.other{
+  padding: 3px;
+  background-color: #ff5757;
+  border: solid #cf4646 2px;
+}
+
+.key .other:hover {
+  border: solid #cf4646 2px;
 }
 
 /*green*/
@@ -82,13 +97,13 @@ button {
 }
 
 /*yellow*/
-.other {
+.anglo-french {
   padding: 3px;
   background-color: #f6ff00;
   border: solid #9da300 2px;
 }
 
-.key .other:hover {
+.key .anglo-french:hover {
   border: solid #9da300 2px;
 }
 

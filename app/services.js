@@ -30,7 +30,9 @@ myApp.service('etymologyService', function(){
 myApp.service('originLanguageService', function() {
 
   this.getLanguage = function(etymology) {
-    if (etymology.includes("Old English")) {
+    if (etymology.includes("Anglo-French")) {
+      return "anglo-french";
+    } else if (etymology.includes("Old English")) {
       return "old-english";
     } else if (etymology.includes("Latin")) {
       return "latin";
