@@ -9,14 +9,12 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
     $scope.etymologies = [];
     $scope.words = $scope.sanitize($scope.inputText); // array
     $scope.wordParams = $scope.words.join(" "); // string
-
     $scope.loading = true;
 
     $http.get($scope.resourceURL, {
       params: { words: $scope.wordParams }
     })
       .then(function success(response) {
-
         // cycle through each word
         $.each(response.data, function() {
           word = $scope.words.shift();
@@ -32,6 +30,7 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
       }, function error(response) {
         console.log("Error");
       })
+
       .finally(function() {
         $scope.loading = false;
       });
