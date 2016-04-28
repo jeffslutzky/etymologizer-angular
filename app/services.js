@@ -1,15 +1,15 @@
 myApp.service('etymologyService', function(){
 
   this.findEtymology = function(word) {
-      entry = word.entry_list.entry;
+      var entry = word.entry_list.entry;
       if (entry.length) {
-        return this.findCorrectSubEntry();
+        return this.findCorrectSubEntry(entry);
       } else {
         return entry.et;
       };
   };
 
-  this.findCorrectSubEntry = function() {
+  this.findCorrectSubEntry = function(entry) {
 
     for (i = 0; i < entry.length; i++) {
       if (entry[i].et && typeof entry[i].et === "string") {

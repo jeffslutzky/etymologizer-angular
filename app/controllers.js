@@ -18,6 +18,7 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
         // cycle through each word
         $.each(response.data, function() {
           var word = $scope.words.shift();
+          var etymology = "";
           this.entry_list.entry ? etymology = etymologyService.findEtymology(this) : etymology = null;
           etymology ? etymology = etymologyService.getValidHTML(etymology) : etymology = "null";
           etymology ? language = originLanguageService.getLanguage(etymology) : language = null;
