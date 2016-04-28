@@ -41,7 +41,6 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
     wordString = wordString.replace(/[^a-zA-Z ]/g, "");
     wordString = wordString.replace(/\s+/g, " ").trim();
     wordString = wordString.split(" ");
-    debugger;
     return wordString;
   }
 
