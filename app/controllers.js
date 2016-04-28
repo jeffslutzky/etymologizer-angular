@@ -17,7 +17,7 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
       .then(function success(response) {
         // cycle through each word
         $.each(response.data, function() {
-          word = $scope.words.shift();
+          var word = $scope.words.shift();
           this.entry_list.entry ? etymology = etymologyService.findEtymology(this) : etymology = null;
           etymology ? etymology = etymologyService.getValidHTML(etymology) : etymology = "null";
           etymology ? language = originLanguageService.getLanguage(etymology) : language = null;
@@ -37,9 +37,11 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
     };
 
   $scope.sanitize = function(wordString) {
-    wordString = wordString.replace("-", " ");
-    wordString = wordString.replace(/\s+/g,' ').trim();
-    wordString = wordString.replace(/[^a-zA-Z ]/g, "").split(" ");
+    var wordString = wordString.replace("-", " ");
+    wordString = wordString.replace(/[^a-zA-Z ]/g, "");
+    wordString = wordString.replace(/\s+/g, " ").trim();
+    wordString = wordString.split(" ");
+    debugger;
     return wordString;
   }
 
