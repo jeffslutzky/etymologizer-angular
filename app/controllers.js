@@ -8,6 +8,7 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
 
     $scope.etymologies = [];
     $scope.words = $scope.sanitize($scope.inputText); // array
+    debugger;
     $scope.wordParams = $scope.words.join(" "); // string
     $scope.loading = true;
 
@@ -39,6 +40,7 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
 
   $scope.sanitize = function(wordString) {
     var wordString = wordString.replace("-", " ");
+    wordString = wordString.replace(/\n/g, " ");
     wordString = wordString.replace(/[^a-zA-Z ]/g, "");
     wordString = wordString.replace(/\s+/g, " ").trim();
     wordString = wordString.split(" ");
