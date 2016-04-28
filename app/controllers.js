@@ -20,9 +20,9 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
           var word = $scope.words.shift();
           var etymology = "";
           this.entry_list.entry ? etymology = etymologyService.findEtymology(this) : etymology = null;
-          etymology ? etymology = etymologyService.getValidHTML(etymology) : etymology = "null";
+          etymology ? etymology = etymologyService.getValidHTML(etymology) : etymology = null;
           etymology ? language = originLanguageService.getLanguage(etymology) : language = null;
-          if (etymology === "null") {
+          if (!etymology) {
             etymology = "<em>no etymology provided</em>";
           };
           $scope.etymologies.push({"word": word, "etymology": etymology, "language": language });
