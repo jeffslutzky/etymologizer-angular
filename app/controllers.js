@@ -8,7 +8,6 @@ myApp.controller('homeController', ['$scope', '$http', '$resource', 'etymologySe
 
     $scope.etymologies = [];
     $scope.words = $scope.sanitize($scope.inputText); // array
-    debugger;
     $scope.wordParams = $scope.words.join(" "); // string
     $scope.loading = true;
 
