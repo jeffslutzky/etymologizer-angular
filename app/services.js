@@ -1,3 +1,5 @@
+'use strict';
+
 myApp.service('etymologyService', function(){
 
   this.findEtymology = function(word) {
@@ -10,8 +12,7 @@ myApp.service('etymologyService', function(){
   };
 
   this.findCorrectSubEntry = function(entry) {
-
-    for (i = 0; i < entry.length; i++) {
+    for (var i = 0; i < entry.length; i++) {
       if (entry[i].et && typeof entry[i].et === "string") {
         return entry[i].et;
       };
@@ -28,7 +29,6 @@ myApp.service('etymologyService', function(){
 
 
 myApp.service('originLanguageService', function() {
-
   this.getLanguage = function(etymology) {
     if (etymology.includes("Anglo-French")) {
       return "anglo-french";
@@ -44,5 +44,4 @@ myApp.service('originLanguageService', function() {
       return "other";
     };
   };
-
 });

@@ -4,6 +4,8 @@ homeController.$inject = ['$scope', '$http', '$resource', 'etymologyService', 'o
 
 function homeController($scope, $http, $resource, etymologyService, originLanguageService) {
 
+  'use strict';
+
   $scope.inputText = "";
   $scope.resourceURL = "https://etymologizer-api.herokuapp.com/api/word";
 
@@ -21,7 +23,8 @@ function homeController($scope, $http, $resource, etymologyService, originLangua
         // cycle through each word
         $.each(response.data, function() {
           var word = $scope.words.shift();
-          var etymology = "";
+          var etymology;
+          var language;
           this.entry_list.entry ? etymology = etymologyService.findEtymology(this) : etymology = null;
           etymology ? etymology = etymologyService.getValidHTML(etymology) : etymology = null;
           etymology ? language = originLanguageService.getLanguage(etymology) : language = null;
