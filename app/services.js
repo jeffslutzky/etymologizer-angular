@@ -28,7 +28,6 @@ myApp.service('etymologyService', function(){
 });
 
 
-
 myApp.service('originLanguageService', function() {
   this.getLanguage = function(etymology) {
     if (etymology.includes("Anglo-French")) {

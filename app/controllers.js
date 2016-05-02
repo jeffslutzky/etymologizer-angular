@@ -20,7 +20,6 @@ function homeController($scope, $http, $resource, etymologyService, originLangua
       params: { words: $scope.wordParams }
     })
       .then(function success(response) {
-        
         // cycle through each word
         $.each(response.data, function() {
           var word = $scope.words.shift();
